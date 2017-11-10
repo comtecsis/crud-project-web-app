@@ -1,0 +1,50 @@
+plugins {
+  id "org.sonarqube" version "2.5"
+}
+
+allprojects{
+	
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: "jacoco"
+	
+	sourceCompatibility = JavaVersion.VERSION_1_7
+	targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+subprojects{
+	repositories {
+		mavenLocal()
+	    jcenter()
+	}
+}
+
+project(':crud-project-web'){
+	apply plugin: 'war'
+	dependencies {
+	    compile 'com.google.guava:guava:21.0'
+	    testCompile 'junit:junit:4.12'
+	}
+}
+
+project(':crud-project-ear'){
+	apply plugin: 'ear'
+}
+
+project(':crud-project-utils'){
+	apply plugin: 'java'
+	dependencies {
+	    compile 'com.google.guava:guava:21.0'
+	    testCompile 'junit:junit:4.12'
+	}
+}
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
