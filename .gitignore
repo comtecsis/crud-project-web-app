@@ -4,3 +4,4 @@
 *.settings/
 .gitignore
 *.class
+*build/
