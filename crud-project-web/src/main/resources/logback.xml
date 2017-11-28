@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="DEV_HOME" value="/apps/comtecsis/logs-crud-app" />
+	<property name="PATTERN"
+		value="[%level] %d{yyyy-MM-dd HH:mm:ss}, %logger{10}[%line]: %msg%n" />
+
+	<appender name="FILE-AUDIT"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${DEV_HOME}/logger.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				${PATTERN}
+			</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${DEV_HOME}/archived/logger.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+	</appender>
+
+	<appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<target>System.err</target>
+		<encoder>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<target>System.out</target>
+		<encoder>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="INFO" additivity="false">
+		<appender-ref ref="FILE-AUDIT" />
+	</logger>
+
+	<logger name="org.springframework.ws.client.MessageTracing"
+		level="INFO" additivity="false">
+		<appender-ref ref="FILE-AUDIT" />
+	</logger>
+
+	<!-- LEVELS DE LOGGER -->
+	<!-- log.trace("Trace Message!"); -->
+	<!-- log.debug("Debug Message!"); ** PRINTS DESARROLLO ** -->
+	<!-- log.info("Info Message!"); ** MENSAJES PRODUCCION ** -->
+	<!-- log.warn("Warn Message!"); -->
+	<!-- log.error("Error Message!"); ** ERRORES PRODUCCION ** -->
+	
+	<!-- DESARROLLO -->
+<!-- 	<logger name="pe.com.scotiabank" level="DEBUG" additivity="true"> -->
+<!-- 	<appender-ref ref="STDOUT" /> -->
+<!-- 	<appender-ref ref="STDERR" /> -->
+<!-- 	</logger> -->
+	<!-- /DESARROLLO -->
+	
+	<!-- PRODUCCION -->
+	<logger name="pe.com.scotiabank" level="INFO" additivity="false">
+		<appender-ref ref="FILE-AUDIT" />
+	</logger>
+	<!-- /PRODUCCION -->
+
+	<root level="INFO">
+		<appender-ref ref="FILE-AUDIT" />
+		<!-- COMENTAR PARA PRODUCCION -->
+<!-- 		<appender-ref ref="STDERR" /> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+		<!-- /COMENTAR PARA PRODUCCION -->
+	</root>
+
+</configuration>
