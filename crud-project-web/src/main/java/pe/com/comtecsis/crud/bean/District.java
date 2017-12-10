@@ -1,6 +1,6 @@
 package pe.com.comtecsis.crud.bean;
 
-public class Departamento {
+public class District {
     private Integer id;
     private String name;
 
@@ -48,4 +48,6 @@ public class Departamento {
 	builder.append(name);
 	builder.append("]");
 	return builder.toString();
-    }}
+    }
+
+}

@@ -12,7 +12,24 @@
 		<link rel="stylesheet" type="text/css" media="all" th:href="@{/resources/css/bootstrap.min.css}">
 	</head>
 	<body>
-		Bienvenido
+		<div class="container" id="header">
+			
+		</div>
+		<div class="container" id="ajax-container">
+			<div class="row">
+				<div class="col-xs-12">
+					Bienvenido
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<a class="btn btn-primary req_inj" href="ubigeo/list" th:text="#{home-ubigeo-link}">[Ubicaciones]</a>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="footer">
+			
+		</div>
 		<script th:src='@{/resources/js/deps/require.js}'>
 		</script>
 		<script type="text/javascript">

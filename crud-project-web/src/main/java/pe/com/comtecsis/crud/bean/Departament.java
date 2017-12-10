@@ -1,6 +1,6 @@
 package pe.com.comtecsis.crud.bean;
 
-public class Provincia {
+public class Departament {
     private Integer id;
     private String name;
 
