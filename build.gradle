@@ -104,16 +104,16 @@ project(':crud-project-web'){
 
 	cargo {
 	    containerId = 'tomcat8x'
-	    port = 8080
+	    port = 8888
 
 	    deployable {
 		context = 'myawesomewebapp'
 	    }
 
 	    remote {
-		hostname = 'localhost'
-		username = 'admin'
-		password = 'admin'
+		hostname = '192.168.0.5'
+		username = 'tomcat'
+		password = 'tomcat'
 	    }
 
 	    local {
