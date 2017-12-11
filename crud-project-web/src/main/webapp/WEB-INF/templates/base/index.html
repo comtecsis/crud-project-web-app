@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Bienvenido</title>
+		<meta charset="UTF-8"/>
+		<meta name="version" th:content="1.0.0"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!-- 		<link rel="shortcut icon" href="https://bancainternetempresas.scotiabank.com.pe/nuevotbk/resources/favicon.ico" /> -->
+		<meta http-equiv="Cache-Control" content="max-age=0, no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Expires" content="0" />
+        
+		<link rel="stylesheet" type="text/css" media="all" th:href="@{/resources/css/bootstrap.min.css}">
+	</head>
+	<body>
+		<div class="container" id="header">
+			<div class="col-xs-12">
+				Header de aplicación
+			</div>
+		</div>
+		<div class="container" id="ajax-container">
+			<div th:replace="home/home :: home"></div>
+		</div>
+		<div class="container" id="footer">
+			<div class="col-xs-12">
+				Footer de aplicación
+			</div>	
+		</div>
+		<script th:src='@{/resources/js/deps/require.js}'>
+		</script>
+		<script th:src='@{/resources/js/config/memory.js}'>
+		</script>
+		<script type="text/javascript">
+		
+			require(["resources/js/init.js"],function(){
+				require(["shell"],function(shell){
+					shell.activate();
+				});
+			})
+			
+		</script>
+	</body>
+</html>

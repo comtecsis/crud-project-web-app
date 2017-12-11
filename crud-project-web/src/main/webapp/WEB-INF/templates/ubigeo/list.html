@@ -1,0 +1,55 @@
+<div th:fragment="list" th:remove="tag">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+			  <input type="text" class="form-control" th:placeholder="#{ubigeo-list-find-placeholder}" aria-describedby="basic-addon1">
+			  <span class="input-group-btn">
+		        <button class="btn btn-default" type="button" th:text="#{txt-find}">[Buscar]</button>
+		      </span>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td class="text-center" th:text="#{txt-code}">[Código]</td>
+							<td class="text-center hidden-xs" th:text="#{txt-departament}">[Departamento]</td>
+							<td class="text-center hidden-xs" th:text="#{txt-province}">[Provincia]</td>
+							<td class="text-center hidden-xs" th:text="#{txt-district}">[Distrito]</td>
+							<td class="text-center visible-xs" th:text="#{txt-description}">[Descripción]</td>
+							<td class="text-center"  th:text="#{txt-actions}">[Acciones]</td>
+						</tr>
+					</thead>
+					<tbody id="ubigeo-list">
+						<tr class="item">
+							<td class="text-center"><a class="req_inj" href="ubigeo/edit">[000]</a></td>
+							<td class="hidden-xs">[La Libertad]</td>
+							<td class="hidden-xs">[Pacasmayo]</td>
+							<td class="hidden-xs">[Guadalupe]</td>
+							<td class="visible-xs">[La Libertad, Pacasmayo, Guadalupe]</td>
+							<td class="action text-center">
+								<button type="button" class="btn btn-warning btn-edit">
+									<span aria-hidden="true" class="glyphicon glyphicon-edit"></span>
+								</button>
+								<button class="btn btn-danger btn-remove">
+									<span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 text-right">
+			<a class="btn btn-info req_inj pull-left" href="home" th:text="#{txt-go-back}">[Regresar]</a>
+			<a class="btn btn-default req_inj" href="ubigeo/create" th:text="#{txt-add}">[Agregar]</a>
+		</div>
+	</div>
+</div>

@@ -1,6 +1,6 @@
 package pe.com.comtecsis.crud.bean;
 
-public class Distrito {
+public class Province {
     private Integer id;
     private String name;
 
@@ -48,6 +48,4 @@ public class Distrito {
 	builder.append(name);
 	builder.append("]");
 	return builder.toString();
-    }
-
-}
+    }}
