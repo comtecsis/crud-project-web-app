@@ -1,19 +1,24 @@
 define(['require','libs/ajaxUtils'],function(require, ajaxUtils){
 	
-	var selectors = {
-		require_inject: "a.req_inj",
-		require_component: "#ajax-container"
-	}
+	var events = [
+		{
+			action: "click",
+			selector: "a.req_inj",
+			evt: injectRequire
+		}
+	]
 	
 	function on(){
 		off();
-		$(selectors.require_inject).on("click",function(e){
-			injectRequire(e);
+		events.forEach(function(event){
+			$("body").on(event.action, event.selector, event.evt)
 		})
 	}
 	
 	function off(){
-		$(selectors.require_inject).off("click");
+		events.forEach(function(event){
+			$("body").off(event.action, event.selector, event.evt)
+		})
 	}
 	
 	function getSelector(attr){
@@ -31,20 +36,19 @@ define(['require','libs/ajaxUtils'],function(require, ajaxUtils){
 		e.preventDefault();
 		var comp = e.target;
 		var href = $(comp).attr("href");
-		ajaxUtils.loadModule({
-			selector: selectors.require_component, 		
+		ajaxUtils.loadModule({ 		
 			moduleJs: href, 	
 			urlContent: href, 	
 			onSuccess: function(module){
-				var methods_support = ["activate","render","complete"]
+				objMemory.clear(); // Se limpia las variables que hayan sido traidas en el anterior modelo.
+				var methods_support = ["activate","events","complete"]
 				for(var key in methods_support){
 					var method = methods_support[key];
 					if(module[method] !== undefined){
 						module[method]();
 					}
 				}
-			},	// Luego de la injeccion del html trabajar sobre los metodos del modulo require
-			onError: function(){},			// Llamar en caso de error en require o injeccion de modulo require.
+			}
 		})
 	}
 	

@@ -1,8 +1,8 @@
-define(['require','bootstrap','config/logicAjax'],function(require,bootstrap,logicAjax){
+define(['require','bootstrap','config/bodyEvt'],function(require,bootstrap,bodyEvt){
 	
 	function activate(){
-		logicAjax.on();
-		console.log("Activate")
+		objMemory.startClear();
+		console.log("Activate home")
 	}
 	
 	return {

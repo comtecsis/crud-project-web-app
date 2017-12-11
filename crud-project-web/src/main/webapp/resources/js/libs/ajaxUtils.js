@@ -1,4 +1,4 @@
-define(['require','jquery'],function(require, $){
+define(['require','jquery','libs/constants'],function(require, $, constants){
 	
 	/**
 	 * Recarga html y carga modulo require.
@@ -8,7 +8,7 @@ define(['require','jquery'],function(require, $){
 	 */
 	function loadModule(config){
 		var params = {
-			selector: null, 		// Selector jQuery donde se injectara el html.
+			selector: constants.AJAX_CONTAINER, 		// Selector jQuery donde se injectara el html.
 			moduleJs: null, 	// Modulo require con el que se trabajará en onSuccess.
 			urlContent: null, 	// Direccion del html a injectar
 			method: 'POST', 	// Metodo de llamado a urlContent
