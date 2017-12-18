@@ -10,7 +10,7 @@ public class ServletInitializer extends
     @Override
     protected Class<?>[] getRootConfigClasses() {
 	return new Class[] { SpringPropertiesConfig.class, ConfigMvc.class,
-		RootConfig.class };
+		RootConfig.class, SqlSessionConfig.class };
     }
 
     @Override

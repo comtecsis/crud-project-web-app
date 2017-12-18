@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pe.com.comtecsis.crud.persistence.TranslateMapper">
+	<cache />
+
+	<select id="getTranslateByCodAndLocale" resultType="Translate">
+		select code, 
+		<choose>
+			<when test="locale == 'es'">
+				es as literal
+			</when>
+			<when test="locale == 'en'">
+				en as literal
+			</when>
+			<otherwise>
+				es as literal
+			</otherwise>
+		</choose>
+		from translate where code = #{code}
+	</select>
+
+</mapper>
