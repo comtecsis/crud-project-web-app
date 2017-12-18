@@ -22,15 +22,27 @@ public class HomeController {
     
     public HomeController() {
     }
+    
+    private ModelAndView modelHome(){
+	ModelAndView model = new ModelAndView();
+	return model;
+    }
 
     @RequestMapping(value = "/")
     public ModelAndView welcome() {
-	return new ModelAndView("base/index");
+	ModelAndView model = modelHome();
+	
+	model.addObject("delayAjax", delayAjax);
+	
+	model.setViewName("base/index");
+	return model;
     }
 
     @RequestMapping(value = "/home")
     public ModelAndView home() {
-	return new ModelAndView("home/home");
+	ModelAndView model = modelHome();
+	model.setViewName("home/home");
+	return model;
     }
 
 }
