@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource(value = "classpath:app.properties")
+@PropertySource(value = {"classpath:db.properties", "classpath:app.properties"}, ignoreResourceNotFound = false)
 @ComponentScan("pe.com.comtecsis.crud")
 public class RootConfig {
-
+    
 }

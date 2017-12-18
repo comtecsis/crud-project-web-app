@@ -4,11 +4,13 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class ServletInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer {
-    
+public class ServletInitializer extends
+	AbstractAnnotationConfigDispatcherServletInitializer {
+
     @Override
     protected Class<?>[] getRootConfigClasses() {
-	return new Class[] { RootConfig.class, ConfigMvc.class };
+	return new Class[] { SpringPropertiesConfig.class, ConfigMvc.class,
+		RootConfig.class };
     }
 
     @Override

@@ -53,6 +53,12 @@ subprojects{
 	}
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'xml-apis:xml-apis:1.4.01'
+    }
+}
+
 project(':crud-project-web'){
 	apply plugin: 'war'
 	apply plugin: 'com.bmuschko.cargo'
@@ -91,7 +97,13 @@ project(':crud-project-web'){
         //compile 'com.c05mic.generictree:GenericN-aryTree:1.1.1'
 		compile "commons-io:commons-io:2.5"
 		compile("org.mybatis:mybatis-spring:1.2.2")
-        
+		
+		//compile group: 'commons-configuration', name: 'commons-configuration', version: '1.6'
+		compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.2.2'
+		compile group: 'org.springmodules', name: 'spring-modules-jakarta-commons', version: '0.8a'
+		
+		compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
+		        
         testCompile "junit:junit:${junitVersion}"
         testCompile "org.mockito:mockito-core:${mockitoVersion}"
         testCompile "org.springframework:spring-test:${springFrameworkVersion}"
