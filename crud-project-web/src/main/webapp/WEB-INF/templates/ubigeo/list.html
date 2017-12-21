@@ -26,8 +26,8 @@
 						</tr>
 					</thead>
 					<tbody id="ubigeo-list">
-						<tr class="item">
-							<td class="text-center"><a class="req_inj" href="ubigeo/edit">[000]</a></td>
+						<tr class="item" th:attr="data-code=${'001'}">
+							<td class="text-center"><a href="#" class="link-detail">[000]</a></td>
 							<td class="hidden-xs">[La Libertad]</td>
 							<td class="hidden-xs">[Pacasmayo]</td>
 							<td class="hidden-xs">[Guadalupe]</td>
@@ -36,7 +36,7 @@
 								<button type="button" class="btn btn-warning btn-edit">
 									<span aria-hidden="true" class="glyphicon glyphicon-edit"></span>
 								</button>
-								<button class="btn btn-danger btn-remove">
+								<button class="btn btn-danger btn-delete">
 									<span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
 								</button>
 							</td>
@@ -50,6 +50,27 @@
 		<div class="col-xs-12 text-right">
 			<a class="btn btn-info req_inj pull-left" href="home" th:text="#{txt-go-back}">[Regresar]</a>
 			<a class="btn btn-default req_inj" href="ubigeo/create" th:text="#{txt-add}">[Agregar]</a>
+		</div>
+	</div>
+	<div class="modal fade" id="modal-delete">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-save">Save changes</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,6 +1,6 @@
 package pe.com.comtecsis.crud.bean.request;
 
-public class UbigeoDelete {
+public class ReqUbigeo {
     private String idUbigeo;
 
     /**

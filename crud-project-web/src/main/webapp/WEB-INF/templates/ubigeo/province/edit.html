@@ -1,0 +1,50 @@
+<div th:fragment="edit" th:remove="tag">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading" th:text="#{ubigeo-create-title}">[Registro
+					de Ubigeo]</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">@</span> <input
+									type="text" class="form-control" placeholder="Codigo" readonly="readonly"
+									aria-describedby="basic-addon1">
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon2">@</span> <input
+									type="text" class="form-control" placeholder="Departamento"
+									aria-describedby="basic-addon2">
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon3">@</span> <input
+									type="text" class="form-control" placeholder="Provincia"
+									aria-describedby="basic-addon3">
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon4">@</span> <input
+									type="text" class="form-control" placeholder="Distrito"
+									aria-describedby="basic-addon4">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-xs-12 text-right">
+							<a class="btn btn-info req_inj pull-left" href="ubigeo/list" th:text="#{txt-go-back}">[Atras]</a>
+							<button class="btn btn-success" th:text="#{txt-save}">[Guardar]</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
