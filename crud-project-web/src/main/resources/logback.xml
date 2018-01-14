@@ -69,7 +69,7 @@
 	<!-- /DESARROLLO -->
 	
 	<!-- PRODUCCION -->
-	<logger name="pe.com.scotiabank" level="INFO" additivity="false">
+	<logger name="pe.com.comtecsis" level="INFO" additivity="false">
 		<appender-ref ref="FILE-AUDIT" />
 	</logger>
 	<!-- /PRODUCCION -->

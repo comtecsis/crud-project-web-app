@@ -27,7 +27,7 @@
 					</thead>
 					<tbody id="ubigeo-list">
 						<tr class="item" th:attr="data-code=${'001'}">
-							<td class="text-center"><a href="#" class="link-detail">[000]</a></td>
+							<td class="text-center"><a href="#" class="btn-detail">[000]</a></td>
 							<td class="hidden-xs">[La Libertad]</td>
 							<td class="hidden-xs">[Pacasmayo]</td>
 							<td class="hidden-xs">[Guadalupe]</td>
@@ -48,8 +48,8 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12 text-right">
-			<a class="btn btn-info req_inj pull-left" href="home" th:text="#{txt-go-back}">[Regresar]</a>
-			<a class="btn btn-default req_inj" href="ubigeo/create" th:text="#{txt-add}">[Agregar]</a>
+			<a class="btn btn-info req_inj pull-left" th:href="@{home}" data-module="home" th:text="#{txt-go-back}">[Regresar]</a>
+			<a class="btn btn-default req_inj" th:href="@{ubigeo/create}" data-module="ubigeo/create" th:text="#{txt-add}">[Agregar]</a>
 		</div>
 	</div>
 	<div class="modal fade" id="modal-delete">

@@ -35,9 +35,10 @@ define(['require','libs/ajaxUtils'],function(require, ajaxUtils){
 	function injectRequire(e){
 		e.preventDefault();
 		var comp = e.target;
-		var href = $(comp).attr("href");
+		var href = contextUrl($(comp).attr("href"));
+		var module = $(comp).data("module");
 		ajaxUtils.loadModule({ 		
-			moduleJs: href, 	
+			moduleJs: module, 	
 			urlContent: href, 	
 			onSuccess: function(module){
 				objMemory.clear(); // Se limpia las variables que hayan sido traidas en el anterior modelo.

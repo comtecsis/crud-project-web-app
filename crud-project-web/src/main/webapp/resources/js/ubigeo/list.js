@@ -67,8 +67,7 @@ define(['require','jquery', 'libs/ajaxUtils', 'request/url', 'request/bean/ReqUb
 		var href = url.ubigeo.edit;
 		var data = reqEdit(e.target);
 		ajaxUtils.loadModule({
-			moduleJs: href, 	
-			urlContent: href,
+			moduleJs: href,
 			data: data
 		})
 	}
@@ -78,8 +77,7 @@ define(['require','jquery', 'libs/ajaxUtils', 'request/url', 'request/bean/ReqUb
 		var href = url.ubigeo.detail;
 		var data = reqDetail(e.target);
 		ajaxUtils.loadModule({ 		
-			moduleJs: href, 	
-			urlContent: href,
+			moduleJs: href,
 			data: data
 		})
 	}

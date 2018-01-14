@@ -54,6 +54,9 @@ define(['require','jquery','libs/constants'],function(require, $, constants){
 			clearMemory: objMemory.clear // Limpiar variable tmp de almacenamiento de valores.
 		}
 		$.extend(params, config);
+		if(params.urlContent == null){
+			params.urlContent = params.moduleJs;
+		}
 		require([params.moduleJs], function(module){
 			$.ajax({
 				url: params.urlContent,
