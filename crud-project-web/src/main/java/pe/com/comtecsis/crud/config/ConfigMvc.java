@@ -2,9 +2,10 @@ package pe.com.comtecsis.crud.config;
 
 import java.util.Locale;
 
-import org.springframework.context.MessageSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.LocaleResolver;
@@ -24,14 +25,10 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
-import pe.com.comtecsis.crud.service.impl.DatabaseMessageSource;
 import pe.com.comtecsis.crud.util.UtilWebConstants;
 
 /**
  * Configuracion de thymeleaf.
- * 
- * @author Werner Oda
- *
  */
 @Configuration
 @EnableWebMvc
@@ -41,6 +38,9 @@ public class ConfigMvc extends WebMvcConfigurerAdapter
     private static final String PATH_TEMPLATES_THYMELEAF = "/WEB-INF/templates/";
     private static final String SUFFIX_HTML_THYMELEAF = ".html";
 
+    @Value("${crud-path}")
+    private String crudPath;
+    
     @Bean
     public ITemplateResolver templateResolver()
     {
@@ -99,9 +99,15 @@ public class ConfigMvc extends WebMvcConfigurerAdapter
     }
 
     @Bean
-    public MessageSource messageSource()
+    public ReloadableResourceBundleMessageSource messageSource()
     {
-	return new DatabaseMessageSource();
+		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+	    messageSource.setBasenames(new String[] { 
+	    		crudPath+"/i18n/crud" });
+	    messageSource.setFallbackToSystemLocale(true);
+	    messageSource.setAlwaysUseMessageFormat(true);
+	    messageSource.setDefaultEncoding(UtilWebConstants.ENCODING_UTF_8);
+	    return messageSource;
     }
 
     @Override
