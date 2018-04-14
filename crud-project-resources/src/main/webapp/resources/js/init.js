@@ -1,5 +1,5 @@
 var requireCrud = requirejs.config({
-    baseUrl: 'resources/js/',
+    baseUrl: '/resources/js/',
     waitSeconds: 200,
     paths: {
         'bootstrap': 'deps/bootstrap.min',

@@ -9,7 +9,7 @@
 		<meta http-equiv="Cache-Control" content="max-age=0, no-cache, no-store, must-revalidate" />
         <meta http-equiv="Expires" content="0" />
         
-		<link rel="stylesheet" type="text/css" media="all" th:href="@{/resources/css/bootstrap.min.css}">
+		<link rel="stylesheet" type="text/css" media="all" th:href="@{../resources/css/bootstrap.min.css}">
 	</head>
 	<body>
 		<div class="container" id="header">
@@ -25,15 +25,15 @@
 				Footer de aplicación
 			</div>	
 		</div>
-		<script th:src='@{/resources/js/config/config.js}'>
+		<script th:src='@{../resources/js/config/config.js}'>
 		</script>
-		<script th:src='@{/resources/js/deps/require.js}'>
+		<script th:src='@{../resources/js/deps/require.js}'>
 		</script>
-		<script th:src='@{/resources/js/config/memory.js}'>
+		<script th:src='@{../resources/js/config/memory.js}'>
 		</script>
 		<script type="text/javascript">
 		
-			require(["resources/js/init.js"],function(){
+			require(["../resources/js/init.js"],function(){
 				require(["shell"],function(shell){
 					shell.activate();
 				});

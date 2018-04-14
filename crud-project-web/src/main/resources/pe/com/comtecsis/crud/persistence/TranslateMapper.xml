@@ -15,7 +15,7 @@
 				es as literal
 			</otherwise>
 		</choose>
-		from translate where code = #{code}
+		from comtecsis.translate where code = #{code}
 	</select>
 
 </mapper>

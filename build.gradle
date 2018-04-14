@@ -148,11 +148,9 @@ project(':crud-project-ear'){
 	apply plugin: 'ear'
 }
 
-project(':crud-project-utils'){
-	apply plugin: 'java'
+project(':crud-project-resources'){
+	apply plugin: 'war'
 	dependencies {
-	    compile 'com.google.guava:guava:21.0'
-	    testCompile 'junit:junit:4.12'
 	}
 }
 

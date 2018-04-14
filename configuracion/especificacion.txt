@@ -1,0 +1,31 @@
+oracle
+------
+
+* Ejecutar el script.
+  - Se puede ejecutar los comandos comentados para configurar el usuario o se puede revisar.
+	https://stackoverflow.com/questions/9447492/how-to-create-a-user-in-oracle-11g-and-grant-permissions
+  - Se puede descomentar el fragmente de drop para eliminar y reconstruir las tablas otra vez.
+
+
+liberty
+-------
+
+* server.xml 
+
+  - Configuracion de contextos
+	
+	crud-project-resources.war(/): Recursos estaticos.
+	crud-project-web.war(crudproject): Contexto del proyecto.
+
+* Librerias compartidas.
+* Datasource como jndi(jdbc/oracle).
+* Aplicaciones expuestas por el puerto 9080 y 9443
+
+* jvm.options
+
+  - crud-path: Ruta de ubicacion de los properties.
+
+apps
+----
+
+* Copiar en la ruta c:/ la carpeta, para que el valor de jvm.options quede apuntando a esta carpeta y se carguen los properties.

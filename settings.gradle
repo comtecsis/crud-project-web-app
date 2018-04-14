@@ -17,6 +17,6 @@ include 'services:webservice'
 
 include 'crud-project-ear'
 include 'crud-project-web'
-include 'crud-project-utils'
+include 'crud-project-resources'
 
 rootProject.name = 'crud-project-web-app'

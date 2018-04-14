@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 import java.util.Properties;
 
 import javax.annotation.PostConstruct;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.apache.commons.configuration.ConfigurationConverter;
@@ -20,6 +21,8 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.jndi.JndiTemplate;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * Example of Spring 4 Properties Java Configuration, with a Database Properties
@@ -49,14 +52,16 @@ public class SpringPropertiesConfig{
     }
 
     @Bean
-    public DataSource dataSource() {
-	BasicDataSource dataSource = new BasicDataSource();
+    public DataSource dataSource() throws NamingException {
+    	return (DataSource) new JndiTemplate().lookup("jdbc/oracle");
+	/*BasicDataSource dataSource = 
+			new BasicDataSource();
 	dataSource.setDriverClassName(env
 		.getProperty("datasource.driverClassName"));
 	dataSource.setUrl(env.getProperty("datasource.url"));
 	dataSource.setUsername(env.getProperty("datasource.username"));
 	dataSource.setPassword(env.getProperty("datasource.password"));
-	return dataSource;
+	return dataSource;*/
     }
 
     @PostConstruct

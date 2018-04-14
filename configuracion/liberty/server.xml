@@ -1,0 +1,43 @@
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+	    <feature>localConnector-1.0</feature>
+	    <feature>jndi-1.0</feature>
+        <feature>servlet-3.1</feature>
+        <feature>jsp-2.3</feature>
+        <feature>jdbc-4.0</feature>
+        <feature>ssl-1.0</feature>
+    </featureManager>
+
+	<keyStore id="defaultKeyStore" password="password" />
+	
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+    
+    <library id="OracleLib">
+	  <fileset dir="${shared.resource.dir}/oracle" includes="*.jar"/>
+	</library>
+	
+	<!-- Declare the Worklight Server project database -->
+	<dataSource jndiName="jdbc/oracle" transactional="false">
+	  <jdbcDriver libraryRef="OracleLib"/>
+	  <properties.oracle driverType="thin" databaseName="orclpdb1"
+	                     serverName="ip-docker" portNumber="1521" serviceName="orclpdb1"
+	                     user="comtecsis" password="comtecsis"/>
+	</dataSource>
+		
+	<library id="someLibrary">
+		<!-- All the jar files in ther servers lib folder -->
+	   <fileset dir="${server.config.dir}/lib/global" includes="*.jar" scanInterval="5s" />
+	</library>
+
+	<!-- Automatically expand WAR files and EAR files -->
+	<applicationManager autoExpand="true"/>
+
+    <applicationMonitor updateTrigger="mbean"/>
+
+    <webApplication contextRoot="/" id="crud-project-resources" location="crud-project-resources.war" name="crud-project-resources"/>
+
+    <webApplication contextRoot="crudproject" id="crud-project-web" location="crud-project-web.war" name="crud-project-web"/>
+</server>

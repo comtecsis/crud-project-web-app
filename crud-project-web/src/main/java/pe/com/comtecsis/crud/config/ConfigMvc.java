@@ -54,24 +54,12 @@ public class ConfigMvc extends WebMvcConfigurerAdapter
     }
 
     @Bean
-    @Autowired
     public TemplateEngine templateEngine()
     {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());
         engine.addDialect(new SpringSecurityDialect());
         return engine;
-    }
-
-    @Bean
-    @Autowired
-    public ThymeleafViewResolver thymeleafViewResolver(SpringTemplateEngine templateEngine)
-    {
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setTemplateEngine(templateEngine);
-        resolver.setCharacterEncoding(UtilWebConstants.ENCODING_UTF_8);
-        resolver.setRedirectHttp10Compatible(false);
-        return resolver;
     }
 
     @Bean
