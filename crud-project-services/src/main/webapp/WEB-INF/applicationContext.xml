@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd       
+       http://www.springframework.org/schema/jee 
+       http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+
+
+	<!-- Web services -->
+	<bean id="loginWebService" class="pe.com.comtecsis.crud.webservice.impl.LoginWebServiceImpl">
+		<property name="loginService" ref="loginService"/>
+	</bean>
+
+	<!-- services -->
+	<bean id="loginService"	class="pe.com.comtecsis.crud.service.impl.LoginServiceImpl"/>
+	
+	<!-- Factory -->
+	<bean id="exceptionWsFactory"	class="pe.com.comtecsis.crud.service.factory.ExceptionWsFactory"/>
+	<bean id="responseWsFactory"	class="pe.com.comtecsis.crud.service.factory.ResponseWsFactory"/>
+	<bean id="sessionWsManager"	class="pe.com.comtecsis.crud.service.utils.SessionWsManager"/>
+	
+	<!-- Datasource -->
+	<jee:jndi-lookup expected-type="javax.sql.DataSource" id="dataSource" jndi-name="jdbc/oracle" />	
+
+	<context:component-scan base-package="pe.com.comtecsis.crud" />
+	
+</beans>

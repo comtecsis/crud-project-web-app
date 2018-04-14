@@ -15,9 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-include 'crud-project-ear'
-include 'crud-project-web'
-include 'crud-project-services'
-include 'crud-project-resources'
-
-rootProject.name = 'crud-project-web-app'
+rootProject.name = 'crud-ws-login'
