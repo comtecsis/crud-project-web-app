@@ -1,0 +1,14 @@
+<div th:fragment="login" th:remove="tag">
+	<div class="row">
+		<div class="col-xs-12">Control de Acceso</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<form th:action="${loginUrl}" method="post">
+				<input name="username" type="text"/>
+				<input name="password" type="password"/>
+				<button>Ingresa</button>
+			</form>
+		</div>
+	</div>
+</div>

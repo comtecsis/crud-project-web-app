@@ -1,6 +1,5 @@
 package pe.com.comtecsis.crud.config;
 
-import java.text.MessageFormat;
 import java.util.Properties;
 
 import javax.annotation.PostConstruct;
@@ -9,20 +8,18 @@ import javax.sql.DataSource;
 
 import org.apache.commons.configuration.ConfigurationConverter;
 import org.apache.commons.configuration.DatabaseConfiguration;
-import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.jndi.JndiTemplate;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * Example of Spring 4 Properties Java Configuration, with a Database Properties
@@ -54,14 +51,6 @@ public class SpringPropertiesConfig{
     @Bean
     public DataSource dataSource() throws NamingException {
     	return (DataSource) new JndiTemplate().lookup("jdbc/oracle");
-	/*BasicDataSource dataSource = 
-			new BasicDataSource();
-	dataSource.setDriverClassName(env
-		.getProperty("datasource.driverClassName"));
-	dataSource.setUrl(env.getProperty("datasource.url"));
-	dataSource.setUsername(env.getProperty("datasource.username"));
-	dataSource.setPassword(env.getProperty("datasource.password"));
-	return dataSource;*/
     }
 
     @PostConstruct
